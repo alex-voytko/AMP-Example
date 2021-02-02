@@ -1,0 +1,68 @@
+<!doctype html>
+<html ⚡4email>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+    h1 {
+    	font-family: arial;
+      	margin: 10px;
+    }
+    .center {
+		text-align: center;
+    }
+    .carousel-preview {
+      margin-top: 10px;
+    } 
+  </style>
+</head>
+<body>
+	<amp-state id="myState">
+    <script type="application/json">
+      {"cars": 
+         [
+           {
+            "name": "Ferrari",
+            "description": "Very fast and furious car!"
+          },
+          {
+            "name": "Rolls-Royce",
+            "description": "Rolls-Royce - status and prestige!"
+          },
+          {
+            "name": "Toyota",
+            "description": "Toyota - reliability and power!"
+          },
+          {
+            "name": "Tesla",
+            "description": "Tesla - innovation and futurism!"
+          }
+        ]
+      }
+    </script>
+  </amp-state>
+  </amp-state>
+  <h1>Top 4 Cars!!!</h1>
+  <amp-carousel id="carousel-with-preview"
+    width="800"
+    height="400"
+    layout="responsive"
+    type="slides"
+    on="slideChange:AMP.setState({currentCar: event.index})">
+  <amp-img layout="fill" src="https://cdn.motor1.com/images/mgl/kJEqQ/s1/ferrari-f8-spider.jpg" alt="Ferrari F-430"></amp-img>
+  <amp-img layout="fill" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Rolls-Royce_Wraith_Genf_2019_1Y7A5147.jpg/1200px-Rolls-Royce_Wraith_Genf_2019_1Y7A5147.jpg" alt="Rolls Royce Wraith Genf"></amp-img>
+  <amp-img layout="fill" src="https://autoreview.ru/images/Article/1659/Article_165930_860_575.jpg" alt="Toyota Land Cruiser 200"></amp-img>
+  <amp-img layout="fill" src="https://autoreview.ru/images/gallery/%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8/2019/April/24/tesla-model-x.jpg" alt="Tesla Model X"></amp-img>
+ </amp-carousel>
+  <div class="center">
+    <h1>
+      <span [text]="myState.cars[currentCar].name">Ferrari</span> is available
+    </h1>
+  </div>
+  <p class="center">About <span [text]="myState.cars[currentCar].name"> Ferrari F-430</span></p>
+  <p class="center" [text]="myState.cars[currentCar].description">Very fast and furious car</p>
+</body>
+
